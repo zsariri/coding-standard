@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="PHPMD Zhr"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0
+                     http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="
+                     http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>
+        PHPMD ZHR ruleset
+    </description>
+
+    <!-- Import the entire unused code rule set -->
+    <rule ref="rulesets/controversial.xml" />
+    <rule ref="rulesets/codesize.xml" />
+
+    <!-- Import entire naming rule set and exclude rules -->
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects" />
+    </rule>
+    <rule ref="rulesets/unusedcode.xml">
+        <exclude name="UnusedFormalParameter" />
+    </rule>
+    <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess" />
+        <!-- doit être une bonne pratique dans l'équipe -->
+        <exclude name="ElseExpression" />
+        <!-- doit être une bonne pratique dans l'équipe -->
+        <exclude name="BooleanArgumentFlag" />
+    </rule>
+    <rule ref="rulesets/naming.xml">
+        <exclude name="ShortVariable" />
+        <!-- doit être une bonne pratique dans l'équipe -->
+        <exclude name="BooleanGetMethodName" />
+    </rule>
+
+    <!-- change rule properties (need to be exclude before) -->
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="exceptions" value="i,l,id,em,om,qb,io" />
+        </properties>
+    </rule>
+</ruleset>
